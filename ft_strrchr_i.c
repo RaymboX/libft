@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr_i.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mraymond <mraymond@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 13:19:03 by mraymond          #+#    #+#             */
-/*   Updated: 2022/08/04 14:49:12 by mraymond         ###   ########.fr       */
+/*   Created: 2022/08/04 14:55:41 by mraymond          #+#    #+#             */
+/*   Updated: 2022/08/04 15:07:06 by mraymond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//Return the location(ptr) of the last c in s. If no c in s, return NULL
-char	*ft_strrchr(const char *s, int c)
+//Return the location(index)) of the last c in s. If no c in s, return -1
+int	ft_strrchr_i(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = ft_strlen(s);
-	while (s[i] != (char)c && i != 0)
+	while (s[i] != (char)c && i >= 0)
 		i--;
-	if (s[i] == (char)c)
-		return ((char *)&s[i]);
+	if (i >= 0 && s[i] == (char)c)
+		return (i);
 	else
-		return (NULL);
+		return (-1);
 }

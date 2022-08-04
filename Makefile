@@ -52,7 +52,9 @@ SRCS = 			ft_atoi.c \
 				progress_bar.c \
 				rad_rc2_deg_conversion.c \
 				create_trgb.c \
-				free_dbl_ptr.c
+				free_dbl_ptr.c \
+				ft_strchr_i.c \
+				ft_strrchr_i.c
 
 
 OBJS = 			$(SRCS:.c=.o)
