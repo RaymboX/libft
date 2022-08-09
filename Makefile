@@ -1,4 +1,28 @@
-SRCS = 			ft_atoi.c \
+#PROGRAM NAME-------------------------------------------------------------------
+
+NAME = 			libft.a
+
+#SYSTEM VAR---------------------------------------------------------------------
+
+R = $(shell tput -Txterm setaf 1)
+G = $(shell tput -Txterm setaf 2)
+C = $(shell tput -Txterm setaf 6)
+W = $(shell tput -Txterm setaf 7)
+Y = $(shell tput -Txterm setaf 3)
+Z = $(shell tput -Txterm setaf 5)
+
+CFLAGS = 		-Wall -Wextra -Werror
+CC		= 		@gcc
+RM		= 		rm -rf
+
+#DIRECTORIES--------------------------------------------------------------------
+
+SRCS_DIR 		= 	./src
+OBJS_DIR		= 	./obj
+
+#FILES--------------------------------------------------------------------------
+
+SRCS_FILES = 	ft_atoi.c \
 				ft_atol.c \
 				ft_bzero.c \
 				ft_calloc.c \
@@ -56,27 +80,49 @@ SRCS = 			ft_atoi.c \
 				ft_strchr_i.c \
 				ft_strrchr_i.c
 
+#FILES VAR----------------------------------------------------------------------
 
-OBJS = 			$(SRCS:.c=.o)
+SRCS 			= 	$(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
+OBJS 			= 	$(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
+
+#SYSTEM RULES-------------------------------------------------------------------
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+#COMPILING RULES------------------------------------------------------------------
 
 
-NAME = 			libft.a
 
-CFLAGS = 		-Wall -Wextra -Werror
-CC		= 		@gcc -c
-RM		= 		rm -f
+all:			init $(NAME)
 
-.c.o =			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-
-all:			$(NAME)
+init:
+				@mkdir -p $(OBJS_DIR)
 
 $(NAME):		$(OBJS)
-				@ar rcs $(NAME) $(OBJS)	
+				@ar rcs $(NAME) $(OBJS)
+				@echo "$Glibft         compiled$W"
 
-clean:
-				@$(RM) $(OBJS) $(OBJS_BONUS)
+clean:			
+ifneq ($(wildcard $(OBJS_DIR)),)
+				@$(RM) $(OBJS)
+				@$(RM) $(OBJS_DIR)
+				@echo "$Rlibft objects deleted$W"
+endif
 
 fclean: 		clean
+ifneq ($(wildcard $(NAME)),)
 				@$(RM) $(NAME)
+				@echo "$Rlibft.a       deleted$W"
+endif
 
 re: 			fclean all
+
+.PHONY:			all clean fclean re init
+
+test:
+ifneq ($(wildcard $(OBJS_DIR)),)
+	@echo "Found"
+else
+	@echo "Did not find"
+endif
