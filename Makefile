@@ -78,7 +78,9 @@ SRCS_FILES = 	ft_atoi.c \
 				create_trgb.c \
 				free_dbl_ptr.c \
 				ft_strchr_i.c \
-				ft_strrchr_i.c
+				ft_strrchr_i.c \
+				ft_is_str_digit.c \
+				ft_is_int_range.c
 
 #FILES VAR----------------------------------------------------------------------
 

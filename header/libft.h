@@ -6,7 +6,7 @@
 /*   By: mraymond <mraymond@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:21:18 by mraymond          #+#    #+#             */
-/*   Updated: 2022/08/04 14:58:25 by mraymond         ###   ########.fr       */
+/*   Updated: 2022/08/30 12:52:15 by mraymond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <limits.h>
 # include "get_next_line.h"
 
 typedef struct s_list
@@ -93,5 +94,7 @@ int			create_trgb(int t, int r, int g, int b);
 void		free_dbl_ptr(void **ptr);
 int			ft_strchr_i(const char *s, int c);
 int			ft_strrchr_i(const char *s, int c);
+int			ft_is_int_range(char *val, int min, int max);
+int			ft_is_str_digit(char *str);
 
 #endif
