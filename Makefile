@@ -80,7 +80,8 @@ SRCS_FILES = 	ft_atoi.c \
 				ft_strchr_i.c \
 				ft_strrchr_i.c \
 				ft_is_str_digit.c \
-				ft_is_int_range.c
+				ft_is_int_range.c \
+				ft_msleep.c
 
 #FILES VAR----------------------------------------------------------------------
 

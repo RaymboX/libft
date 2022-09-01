@@ -6,7 +6,7 @@
 /*   By: mraymond <mraymond@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:21:18 by mraymond          #+#    #+#             */
-/*   Updated: 2022/08/30 12:52:15 by mraymond         ###   ########.fr       */
+/*   Updated: 2022/09/01 10:16:38 by mraymond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
+# include <sys/time.h>
 # include "get_next_line.h"
 
 typedef struct s_list
