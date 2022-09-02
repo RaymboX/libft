@@ -6,7 +6,7 @@
 /*   By: mraymond <mraymond@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:21:18 by mraymond          #+#    #+#             */
-/*   Updated: 2022/09/01 13:53:15 by mraymond         ###   ########.fr       */
+/*   Updated: 2022/09/02 15:22:11 by mraymond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ double				cdegrad(double degree);
 double				cradrc2(double radian);
 double				crc2rad(double rc2);
 int					create_trgb(int t, int r, int g, int b);
-void				free_dbl_ptr(void **ptr);
+void				free_dbl_ptr(void **ptr, int option);
 int					ft_strchr_i(const char *s, int c);
 int					ft_strrchr_i(const char *s, int c);
 int					ft_is_int_range(char *val, int min, int max);
