@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_in_range.c                                   :+:      :+:    :+:   */
+/*   ft_is_int_range.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mraymond <mraymond@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:48:11 by mraymond          #+#    #+#             */
-/*   Updated: 2022/08/30 12:48:40 by mraymond         ###   ########.fr       */
+/*   Updated: 2022/09/02 10:27:17 by mraymond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@ Error list: 1:val null 2:nb_char > max/min int 3:not only digit
 int	ft_is_int_range(char *val, int min, int max)
 {
 	char	*char_int_min;
+	int		len_int_min;
 
 	if (val == NULL || ft_strlen(val) < 1)
 		return (1);
 	char_int_min = ft_itoa(INT_MIN);
-	if (ft_strlen(val) >= ft_strlen(char_int_min))
+	len_int_min = ft_strlen(char_int_min);
+	free(char_int_min);
+	if (ft_strlen(val) >= len_int_min)
 		return (2);
 	if (val[0] == '-' && ft_strlen(val) == 1)
 		return (3);
